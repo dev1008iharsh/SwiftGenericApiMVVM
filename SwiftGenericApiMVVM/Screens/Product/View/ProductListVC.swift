@@ -28,7 +28,7 @@ extension ProductListVC{
     }
     
     func initViewModel(){
-        viewModel.fetchProducts()
+        viewModel.fetchProduct()
     }
     
     func observeEvent(){
