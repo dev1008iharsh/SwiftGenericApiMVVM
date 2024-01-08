@@ -18,7 +18,7 @@ final class ProductViewModel{
          
         eventHandler?(.loading)
         //ApiManager.shared.request(modeltype: [Comment].self, type: EndPointItems.comment)
-        ApiManager.shared.request(modelType: [Product].self, type: EndPointItems.products) { [ weak self ] response in
+        ApiManager.shared.request(modelType: [Product].self, type: ProductEndPointItem.products) { [ weak self ] response in
             
             guard let self else { return }
             
@@ -35,6 +35,19 @@ final class ProductViewModel{
                 print(error)
                 eventHandler?(.network(error))
                 
+            }
+        }
+    }
+    
+    func addProduct(parameters : AddProduct){
+        ApiManager.shared.request(modelType: AddProduct.self, type: ProductEndPointItem.addProduct(product: parameters)) { result in
+           
+            switch result{
+            case .success(let product):
+                self.eventHandler?(.newProductAdded(product: product))
+            case .failure(let error):
+                self.eventHandler?(.network(error))
+             
             }
         }
     }
@@ -70,6 +83,7 @@ extension ProductViewModel{
         case stopLoading
         case dataLoaded
         case network(Error?)
+        case newProductAdded(product : AddProduct)
     }
 
 }

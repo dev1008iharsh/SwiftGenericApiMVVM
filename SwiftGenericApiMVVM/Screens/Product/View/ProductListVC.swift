@@ -16,7 +16,12 @@ class ProductListVC: UIViewController {
         super.viewDidLoad()
         configuration()
     }
-     
+    @IBAction func btnPlusTapped(_ sender: Any) {
+        let product = AddProduct(id: 23, title: "Harsh")
+        viewModel.addProduct(parameters: product)
+        
+    }
+    
 }
 extension ProductListVC{
     
@@ -49,6 +54,8 @@ extension ProductListVC{
                 
             case .network(let error):
                 print(error ?? "Error at ObserEvnt")
+            case .newProductAdded(let newProduct):
+                print("*newProduct",newProduct)
             }
             
         }

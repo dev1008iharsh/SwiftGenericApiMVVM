@@ -34,7 +34,13 @@
                             <constraint firstItem="4pY-M8-kMT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ttl-oB-ecX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Products" id="bG0-Fs-gxd"/>
+                    <navigationItem key="navigationItem" title="Products" id="bG0-Fs-gxd">
+                        <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" id="5D0-Nq-v1P">
+                            <connections>
+                                <action selector="btnPlusTapped:" destination="BYZ-38-t0r" id="BV8-pz-tG9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tblProductList" destination="4pY-M8-kMT" id="BjX-Wj-Vdg"/>
                     </connections>
@@ -66,6 +72,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

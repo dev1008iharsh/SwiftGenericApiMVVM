@@ -8,7 +8,9 @@
  
 import Foundation
  
-struct Product : Decodable {
+// Model to Data -> encodable
+// Data to Model -> decodable
+struct Product : Codable {
     
     let id : Int
     let title : String
